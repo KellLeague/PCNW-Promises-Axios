@@ -32,8 +32,12 @@ getImagesInPagePromisified = (urlLink, htmlLink) => {
         $('img').map((i, e) => {
             const imgURL = url.resolve(urlLink, $(e).attr('src'));
             arrayOfImages.push(imgURL);
+            .then(() => {
+                resolve(arrayOfImages);
+            })
+            .catch(err)
         });
-        resolve(arrayOfImages);
+        
 
     })
 }
